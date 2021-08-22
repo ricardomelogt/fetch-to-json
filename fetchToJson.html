@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Fetchy: fetch() to Json</title>
+</head>
+<body>
+
+    <div class="box_style">
+        <h1>Fetch to Json</h1>
+        <label for='name'>Input URL to use javascript fetch() method and return a Json object for inspection:</label>
+        <input class="theInput" id='myFetchField' type='text' name='name' placeholder='Your URL...' ></input>
+        <button onClick='botao()'>Go fetch!</button>
+        <p>Check out the <strong>javascript console</strong> in your browser element inspector for <strong>better details</strong>.</p>
+        <pre><code id='result' class="box_style">Result:</code></pre>
+    </div>
+
+<style type="text/css">
+
+	body {
+		font-family: 'Calibri', sans-serif;
+		color:#303030;
+	}
+
+	strong {
+    	text-transform: uppercase;
+    }
+    h1 {
+    	text-align: center;
+    	border-bottom: 1px solid #cccccc;
+    }
+
+    #myFetchField {
+        min-width: 100%;
+        display: block;
+        margin: 10px auto;
+        box-sizing: border-box;
+    }
+
+    .box_style {
+    	display: block;
+   		border: 1px solid #a1a1a1;
+    	border-radius: 5px;
+    	padding: 10px;
+    }
+
+</style>
+
+<script type="text/javascript">
+
+function botao(){
+    var elem = document.querySelector('#myFetchField'),
+    fetchUrl = elem.value,
+    respostaJson,
+    stringJson;
+
+    fetch( '' + fetchUrl )
+		.then( resposta => resposta.json() )
+	    .then( respostaObj => respostaJson = respostaObj )
+	    .then( () => stringJson  = JSON.stringify(respostaJson, null, 4) )
+	    .then( () => {
+	        document.querySelector('#result').innerHTML = stringJson;
+	    } )
+	    .then( () => console.log(respostaJson) )    	
+
+}
+
+window.addEventListener("keydown", keydown, false);
+
+function keydown(e) {
+    if(e.keyCode == 13) {
+    	botao();
+	}
+};
+
+</script>
+</body>
+</html>
