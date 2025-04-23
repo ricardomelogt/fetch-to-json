@@ -4,7 +4,7 @@ Ferramenta leve e simples para receber um objeto JSON de uma URL válida. Útil 
 #### Instruções:
 - 1:  Abra o arquivo .html no navegador
 - 2:  Digite a URL no campo designado
-- 3:  Clique em "Go fecth!" ou aperte ENTER
+- 3:  Clique em "Go fetch!" ou aperte ENTER
 - 4:  Abra seu console para ver melhor
 
 ---
